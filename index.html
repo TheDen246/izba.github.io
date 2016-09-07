@@ -1,0 +1,182 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+
+	html, body
+	{ 
+		padding:	0;
+		margin:		0;
+		background:	#000;
+	}
+
+	h2
+	{
+		font-family: Roboco, Calibri;
+		font-size: 25;
+	}
+
+	h1
+	{
+		font-family: Roboco, Calibri;
+		font-size: 18;
+	}
+
+	p
+	{
+		font-family: Roboco, Calibri;
+		font-size: 17;
+		text-align: justify;
+	}
+
+	.background
+	{
+		background-image: url(http://i.imgur.com/Csb9lHD.jpg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center center;
+		width:  100%;
+		height: 100%;
+	}
+
+	.box
+    {
+    	padding: 0px 10px 5px 10px;
+    	width: 465px;
+    	height: 220px;
+
+        position: absolute; 
+	    bottom: 35px; 
+	    right: 35px;
+
+        list-style: none;
+        border: 1px solid #A0A0A0;
+        background: rgba( 5, 5, 5, 0.8 );
+    }
+
+    .progressbox
+    {
+    	padding: 0px 10px 5px 10px;
+    	width: 350px;
+    	height: 100px;
+
+        position: absolute; 
+	    top: 35px; 
+	    left: 35px;
+
+        list-style: none;
+        border: 1px solid #A0A0A0;
+        background: rgba( 5, 5, 5, 0.8 );
+    }
+
+    .progressbar
+    {
+    	width: 350px;
+    	height: 30px;
+
+        position: absolute; 
+	    top: 10px; 
+	    left: 10px;
+
+        background: rgba( 0, 65, 100, 0.8 );
+    }
+
+    .progressline
+    {
+    	width: 350px;
+    	height: 30px;
+
+        position: absolute; 
+        background: rgba( 0, 130, 200, 0.8 );
+    }
+
+</style>
+
+<div class = "background">
+	<div class = "box">
+		<font color = "AAAAAA">
+			<center><b><h2>Добро пожаловать на Избушечку!</h2></b></center>
+			<p>
+				Просим Вас подождать некоторое время, пока основные файлы не будут загружены. Также рекомендуем добавить сервер в избранное, чтобы не потерять (если он Вам понравится, конечно). Подробные правила, коллекция аддонов и прочая полезная информация есть на нашем сайте (<b>!motd</b> в чате). 
+			</p>
+			<center><b><h1>Удачи в игре!</h1></b></center>
+		</font>
+	</div>
+	<div class = "progressbox">
+		<div class = "progressbar">
+			<div class = "progressline" id = "progress_line">
+				<font color = "AAAAAA" id = "progress_text" face = "Roboco, Calibri" size = "5"></font>
+			</div>
+			<font color = "000000" face = "Roboco, Calibri" size = "5">.</font><br>
+			<font color = "AAAAAA" id = "progress_status" face = "Roboco, Calibri" size = "4">.</font><br><br>
+			<font color = "AAAAAA" id = "progress_file" face = "Roboco, Calibri" size = "2">.</font>	
+		</div>		
+	</div>
+</div>
+
+<script>
+
+	var progress_line = document.getElementById( "progress_line" );
+	var progress_text = document.getElementById( "progress_text" );
+
+	var progress_status = document.getElementById( "progress_status" );
+	var progress_file = document.getElementById( "progress_file" );
+
+	function SetProgress( value )
+	{
+		progress_line.style.width = 350 * value;
+		progress_text.innerHTML = Math.round( value * 100 ) + "%";
+	}
+	
+	function SetStatus( status )
+	{
+		progress_status.innerHTML = status;
+	}
+	
+	function SetFile( file )
+	{
+		progress_file.innerHTML = file;
+	}
+
+	SetProgress( 0.5 );
+	SetStatus( "Статус" );
+	SetFile( "Файл" );
+
+
+
+
+
+
+	var filescount = 0;
+	var file = 0;
+
+	function SetFilesTotal( total )
+	{
+		filescount = total;
+	}
+
+	function SetFilesNeeded( needed )
+	{
+		filescount = total;
+	}
+
+	function DownloadingFile( fileName )
+	{
+		file++;
+		SetProgress( file / filescount );
+		SetFile( fileName );
+	}
+
+	function SetStatusChanged( status )
+	{
+		SetStatus( status );
+	}
+
+	function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamemode )
+	{
+
+	}
+	
+</script>
+
+
+
